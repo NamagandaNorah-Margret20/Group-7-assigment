@@ -30,7 +30,7 @@ int main() {
     // Print output inside main
     cout << "Hourly Rate\n";
     cout << "-------------------------------------------------------------------------\n";
-
+ 
     for (size_t i = 0; i < employees.size(); ++i) {
         if (totalHours[i] != 0) {
             cout << "Employee " << employees[i] << " - " 
