@@ -1,32 +1,33 @@
-//Code snippet written by SENGENDO CRYSTAL ZAWEDDE 25/U/08615/PS
-//Program calculating the percentage of the whole dataframe ocuppied by each of the rows 1,2,3.
 
-# include <iostream>
-# include <vector>
+
+#include<iostream>
+#include<vector>
+#include<string>
 using namespace std;
 
-int main(){
-    vector<vector<double>> dataframe = {
-{ 100,     120,     80},
-{130,     140,     90},
-{110,     150,     100},
-{100,     105,     95}};
-double grand_total = 0;
-for (int rows = 0; rows < dataframe.size(); rows++){
-    for (int col = 0; col < dataframe[rows].size(); col++){
-        grand_total = grand_total + dataframe[rows][col];
-    
+
+vector<int>add(vector<int>regular_hours,vector<int>overtime_hours){
+    vector<int>result;
+    for(int i=0;i<regular_hours.size();i++){
+        result.push_back(regular_hours[i]+overtime_hours[i]);
     }
+    return result;
 }
-for (int col = 0; col < dataframe[0].size(); col++){
- double col_total = 0;
- double percentage;
- for (int rows = 0; rows < dataframe.size(); rows++){
-        col_total = col_total + dataframe[rows][col]; 
-        
-        percentage = (col_total/grand_total)*100;
-        }
-        cout <<"Column " <<(col +1) <<" percentage = " <<percentage <<"%\n"; 
-    }         
+int main(){
+    vector<string>employees={"A","B","C","D","E"};
+    vector<int>regular_hours={40,35,40,38,36};
+    vector<int>overtime_hours={5,3,8,2,4};
+    vector<int>hourly_rate={5000,6000,5000,5500,4500};
+
+
+    vector<int>total_hours=add(regular_hours,overtime_hours);
+    cout<<"Total hours worked:"<<endl;
+    for(int i=0;i<total_hours.size();i++){
+        cout<<"Employee"<<" "<<employees[i]<<" "<<"-"<<" ";
+        cout<<total_hours[i]<<" "<<"hours"<<endl;
+
+    }
     return 0;
+
+    
 }
