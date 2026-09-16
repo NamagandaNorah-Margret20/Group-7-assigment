@@ -16,6 +16,14 @@ int main()
 
     vector<int> total_hours = add(regular_hours, overtime_hours);
     vector<double> Overtime_percentage = Overtimepercentage(regular_hours, overtime_hours);
+    // Displaying total hours for each employee
+    cout << "Total hours worked:" << endl;
+    for (int i = 0; i < total_hours.size(); i++)
+    {
+        cout << "Employee" << " " << employees[i] << " " << "-" << " ";
+        cout << total_hours[i] << " " << "hours" << endl;
+    }
+    //Displaying the overtime hour percentage
     cout << "Overtime hour percentage:" << endl;
     for (int i = 0; i < Overtime_percentage.size(); i++)
     {
@@ -33,7 +41,7 @@ vector<int> add(vector<int> regular_hours, vector<int> overtime_hours)
     }
     return result;
 }
-
+//Function to calculate the percentage of overtime hours for each employee
 vector<double> Overtimepercentage(vector<int> regular_hours, vector<int> overtime_hours)
 {
     vector<double> WorkerOvertimePercentage;
